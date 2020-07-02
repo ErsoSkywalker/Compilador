@@ -1,0 +1,6 @@
+%START
+%PRINT Hola bienvenido al Himalaya :)
+%PRINT, %SUMA 2,3
+%SUMA 28 3
+%END
+

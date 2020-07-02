@@ -1,0 +1,9 @@
+%PRINT||Instrucción para imprimir, recibe un parametro después de la declaración
+%SUMA||Instrucción para sumar dos datos, recibe dos datos separados por un espacio 
+%RESTA||Instrucción para restar dos datos, recibe dos datos separados por un espacio 
+%MULTI||Instrucción para multiplicar dos datos, recibe dos datos separados por un espacio 
+%DIV||Instrucción para dividir dos datos, recibe dos datos separados por un espacio 
+%EXPO||Instrucción para elavar un dato a la potencia de otro, recibe dos datos separados por un espacio 
+%START||Instrucción para empezar codigo
+%END||Instrucción para terminar codigo
+%HELP||Instrucción para averiguar más de una instrucción, recibe una instrucción :D
