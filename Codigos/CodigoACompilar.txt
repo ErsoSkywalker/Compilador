@@ -1,6 +1,13 @@
 %START
 %PRINT Hola bienvenido al Himalaya :)
-%PRINT, %SUMA 2,3
-%SUMA 28 3
+%SUMA 2 2
+%RESTA 283 3
+%MULTI 2 3
+%DIV 10 5
+%EXPO 2 2
+%SUMA 2 4
+%SUMA 6 6 6
+%HELP %SUMA
+%START
 %END
 
