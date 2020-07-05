@@ -8,6 +8,5 @@
 %SUMA 2 4
 %SUMA 6 6
 %HELP %SUMA
-%START
 %END
 

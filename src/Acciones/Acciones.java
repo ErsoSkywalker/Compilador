@@ -5,8 +5,11 @@ import Entities.InstruccionEntity;
 import java.util.ArrayList;
 
 public class Acciones {
-    public Acciones(ArrayList<InstruccionEntity> InstruccionesBase, ArrayList<InstruccionEntity> InstruccionesACompilar){
-        
+    
+    javax.swing.JTextArea TextAreaOmg;
+    
+    public Acciones(ArrayList<InstruccionEntity> InstruccionesBase, ArrayList<InstruccionEntity> InstruccionesACompilar, javax.swing.JTextArea TextAreaOmg){
+        this.TextAreaOmg = TextAreaOmg;
         for(int i = 0; i < InstruccionesACompilar.size(); i++){
             switch(InstruccionesACompilar.get(i).getInstruccion()){
                 case "%PRINT":{
@@ -43,7 +46,7 @@ public class Acciones {
     }
     
     public void AccionPrint(String PorImprimir){
-        System.out.println(PorImprimir);
+         TextAreaOmg.setText(TextAreaOmg.getText() + "\n" + PorImprimir);
     }
     
     public void AnalisisNumerico(String PorAnalizar, int Accion){
@@ -74,34 +77,29 @@ public class Acciones {
                 switch(Accion){
                     case 1:{
                         Resultado = Integer.parseInt(NumeroUnoSinTratar) + Integer.parseInt(NumeroDosSinTratar);
-                        System.out.println(Resultado);
                         break;
                     }
                     case 2:{
                         Resultado = Integer.parseInt(NumeroUnoSinTratar) - Integer.parseInt(NumeroDosSinTratar);
-                        System.out.println(Resultado);
                         break;
                     }
                     case 3:{
                         Resultado = Integer.parseInt(NumeroUnoSinTratar) * Integer.parseInt(NumeroDosSinTratar);
-                        System.out.println(Resultado);
                         break;
                     }
                     case 4:{
                         Resultado = Integer.parseInt(NumeroUnoSinTratar) / Integer.parseInt(NumeroDosSinTratar);
-                        System.out.println(Resultado);
                         break;
                     }
                     case 5:{
                         Resultado = Math.pow(Integer.parseInt(NumeroUnoSinTratar), Integer.parseInt(NumeroDosSinTratar));
-                        System.out.println(Resultado);
                         break;
                     }
                 }
                 
-                
+                TextAreaOmg.setText(TextAreaOmg.getText() + "\n" + Resultado);
             }else{
-                System.out.println("Solo se pueden recibir numeros en los parametros :D");
+                TextAreaOmg.setText(TextAreaOmg.getText() + "\nSolo se pueden recibir numeros en los parametros :D");
             }
             
         }
@@ -111,14 +109,16 @@ public class Acciones {
         int Validacion = 0;
         for(int i = 0; i < InstruccionesBase.size(); i++){
             if(Texto.equalsIgnoreCase(InstruccionesBase.get(i).getInstruccion())){
-                System.out.println("Bienvenido al Modulo de ayuda, la instrucción que buscas es la siguiente");
+                 TextAreaOmg.setText(TextAreaOmg.getText() + "\nBienvenido al Modulo de ayuda, la instrucción que buscas es la siguiente");
+                 TextAreaOmg.setText(TextAreaOmg.getText() + "\n"+Texto + ": " + InstruccionesBase.get(i).getDefinicion());
+                 
                 System.out.println(Texto + ": " + InstruccionesBase.get(i).getDefinicion());
                 Validacion++;
                 break;
             }
         }
         if(Validacion == 0){
-            System.out.println("No hemos encontrado tu instrucción en la lista de instrucciones uwu");
+            TextAreaOmg.setText(TextAreaOmg.getText() + "\nNo hemos encontrado tu instrucción en la lista de instrucciones uwu");
         }
         
     }

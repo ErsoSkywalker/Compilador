@@ -4,19 +4,22 @@ package Logica;
 import Acciones.Acciones;
 import Entities.InstruccionEntity;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 // Parches futuros= Validar que no hayan Start ni end entre los start y end del inicio
 
 public class Validacion {
 
-    public Validacion(ArrayList<InstruccionEntity> InstruccionesBase, ArrayList<InstruccionEntity> InstruccionesACompilar) {
+    javax.swing.JTextArea TextAreaOmg;
+    public Validacion(ArrayList<InstruccionEntity> InstruccionesBase, ArrayList<InstruccionEntity> InstruccionesACompilar, javax.swing.JTextArea TextAreaOmg) {
+        this.TextAreaOmg = TextAreaOmg;
         int ValidacionErrores = Contrastar(InstruccionesBase, InstruccionesACompilar);
 
         if (ValidacionErrores == 0) {
 
-            Acciones ac = new Acciones(InstruccionesBase, InstruccionesACompilar);
+            Acciones ac = new Acciones(InstruccionesBase, InstruccionesACompilar, TextAreaOmg);
 
         } else {
-            System.out.println("Por favor revisa tu codigo");
+            JOptionPane.showMessageDialog(null, "¡Por favor revisa tu código!", "Aviso", JOptionPane.ERROR_MESSAGE);
         }
 
     }
@@ -46,8 +49,9 @@ public class Validacion {
                         }
                         if (!Validador2) {
                             CaracterErroneo = j - 1;
-                            System.out.println("Linea " + i + " Caracter erroneo " + CaracterErroneo);
-                            System.out.println("Posición Especifica marcada con asterisco: " + LineaConError.substring(0, CaracterErroneo) + "*" + LineaConError.substring(CaracterErroneo + 1, LineaConError.length()));
+                            TextAreaOmg.setText(TextAreaOmg.getText()+"\nLinea "+ i + " Caracter erroneo " + CaracterErroneo);
+                            TextAreaOmg.setText(TextAreaOmg.getText()+"\nPosición Especifica marcada con asterisco: " + LineaConError.substring(0, CaracterErroneo) + "*" + LineaConError.substring(CaracterErroneo + 1, LineaConError.length()));
+                     
                             break;
                         }
                     }
@@ -55,7 +59,7 @@ public class Validacion {
                 }
                 Validador = false;
             } else {
-                System.out.println("No puedes escribir ni Start ni end entre un Start y un End, ya que estos definen el inicio y el final de un archivo");
+                JOptionPane.showMessageDialog(null, "¡No puedes escribir ni Start ni end entre un Start y un End, ya que estos definen el inicio y el final de un archivo!", "Aviso", JOptionPane.ERROR_MESSAGE);
                 CantidadDeErrores++;
             }
         }

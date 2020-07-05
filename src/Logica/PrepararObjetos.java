@@ -3,6 +3,7 @@ package Logica;
 
 import Entities.InstruccionEntity;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 
 public class PrepararObjetos {
@@ -16,7 +17,7 @@ public class PrepararObjetos {
                 break;
         }
         if(Validacion == 1){
-            System.out.println("Tu archivo está mal, corrigelo :c");
+            JOptionPane.showMessageDialog(null, "¡Tu archivo está mal, corrigelo :c!", "Aviso", JOptionPane.ERROR_MESSAGE);
         }
         
     }

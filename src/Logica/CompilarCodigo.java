@@ -3,6 +3,7 @@ package Logica;
 import Entities.InstruccionEntity;
 import java.util.ArrayList;
 import Logica.PrepararObjetos;
+import javax.swing.JOptionPane;
 
 public class CompilarCodigo {
 
@@ -11,21 +12,21 @@ public class CompilarCodigo {
     //Crear un metodo que reciba la cadena donde te equivocas y definir mediante el codigo base, la sintaxis donde 
     //la regaste uwu
 
-    public CompilarCodigo(ArrayList<String> InstruccionesACompilar, PrepararObjetos Obj) {
+    public CompilarCodigo(ArrayList<String> InstruccionesACompilar, PrepararObjetos Obj,javax.swing.JTextArea TextAreaOmg) {
         int Validar = 0;
         if (InstruccionesACompilar.get(0).equalsIgnoreCase("%START") && InstruccionesACompilar.get(InstruccionesACompilar.size() - 2).equalsIgnoreCase("%END")) {
             for (int i = 1; i < InstruccionesACompilar.size() - 2; i++) {
                 Validar = Analisis(InstruccionesACompilar.get(i));
                 if(Validar == 1){
-                    System.out.println("Bro, tu codigo está mal, checa tu chingadera");
+                    JOptionPane.showMessageDialog(null, "¡Bro, tu codigo está mal, checa tu chingadera!", "Aviso", JOptionPane.ERROR_MESSAGE);
                     break;
                 }
             }
         } else {
-            System.out.println("Tu codigo carece de sentido");
+            JOptionPane.showMessageDialog(null, "¡Tu codigo carece de sentido!", "Aviso", JOptionPane.ERROR_MESSAGE);
         }
         
-        Validacion val = new Validacion(Obj.SerieInstrucciones, InstruccionesDesglosadas);
+        Validacion val = new Validacion(Obj.SerieInstrucciones, InstruccionesDesglosadas, TextAreaOmg);
         
     }
 
