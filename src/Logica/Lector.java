@@ -15,7 +15,7 @@ public class Lector {
     Scanner sc = new Scanner(System.in);
     String ArchivoALeer = "";
     public Lector() throws IOException{
-        LectorArchivoInstrucciones("C:\\Users\\conti\\Desktop\\Asesorias\\Compilador\\Codigos\\DefinicionLenguaje.txt");
+        LectorArchivoInstrucciones("C:\\Users\\conti\\Desktop\\Important Things\\Asesorias\\Compilador\\Codigos\\DefinicionLenguaje.txt");
         System.out.println("Dame el archivo a compilar prro uwu");
         ArchivoALeer = sc.nextLine();
         LectorArchivoACompilar(ArchivoALeer);
